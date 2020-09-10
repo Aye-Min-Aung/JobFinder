@@ -17,3 +17,8 @@ Route::get('/', function () {
     return view('welcome');
     /*return 'hello';*/
 });
+
+//admin
+
+Route::get('/admin','AdminPageController@dashboard')->name('dashboard');
+
