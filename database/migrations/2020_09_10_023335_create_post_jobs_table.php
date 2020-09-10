@@ -19,7 +19,7 @@ class CreatePostJobsTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('nature_id');
             $table->unsignedBigInteger('company_id');
-            $table->string('location');
+            $table->string('address');
             $table->string('primary_skill');
             $table->string('secondary_skill');
             $table->string('experience');

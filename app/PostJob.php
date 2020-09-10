@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class PostJob extends Model
 {
     protected $fillable = [
-        'name','category_id','nature_id','company_id','location',
+        'name','category_id','nature_id','company_id','address',
         'primary_skill','secondary_skill','experience','salary',
         'description'
     ];
