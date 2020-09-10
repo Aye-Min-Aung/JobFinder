@@ -18,6 +18,7 @@ class CreateJobSeekersTable extends Migration
             $table->string('name');  
             $table->integer('phone');
             $table->string('email')->unique();
+            $table->text('address');
             $table->text('photo'); 
             $table->text('cv');
             $table->timestamps();
