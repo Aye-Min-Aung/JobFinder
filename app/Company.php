@@ -11,6 +11,11 @@ class Company extends Model
         return $this->belongsTo('App\CompanyType');
       }
 
+      public function postjobs($value='')
+      {
+        return $this->hasMany('App\Company');
+      }
+
       public function user($value='')
       {
         return $this->belongsTo('App\User');

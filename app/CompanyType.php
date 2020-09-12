@@ -15,8 +15,5 @@ class CompanyType extends Model
         return $this->hasMany('App\Company');
       }
 
-      public function postjobs($value='')
-      {
-        return $this->hasMany('App\PostJob');
-      }
+      
 }

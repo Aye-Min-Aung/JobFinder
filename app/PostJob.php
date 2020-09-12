@@ -27,9 +27,9 @@ class PostJob extends Model
         return $this->hasMany('App\ApplyJob');
       }
 
-      public function companytype($value='')
+      public function company($value='')
       {
-        return $this->belongsTo('App\CompanyType');
+        return $this->belongsTo('App\Company');
       }
 
 
