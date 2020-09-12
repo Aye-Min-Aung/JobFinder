@@ -1,11 +1,11 @@
 @extends('provider/master')
 
 @section('title')
-Dashboard
+Jobs List
 @endsection
 
 @section('content')
 <div class="container">
-    <h1>this is Dashboard page</h1>
+    <h1>joblist</h1>
 </div>
 @endsection

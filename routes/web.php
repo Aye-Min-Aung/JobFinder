@@ -22,13 +22,13 @@ Route::get('/', function () {
 //admin route
 Route::prefix('admin')->group(function () {
 
-    Route::get('/dashboard','admin\AdminPageController@dashboard')->name('dashboard');
+Route::get('/dashboard','admin\AdminPageController@dashboard')->name('dashboard');
 
-    Route::get('/companies','admin\AdminPageController@company')->name('company');
+Route::get('/companies','admin\AdminPageController@company')->name('company');
 
-    Route::get('/job_seeker','admin\AdminPageController@job_seeker')->name('job_seeker');
+Route::get('/job_seeker','admin\AdminPageController@job_seeker')->name('job_seeker');
 
-    Route::resource('categories', 'admin\AdminCategoryController');
+Route::resource('categories', 'admin\AdminCategoryController');
 });
 
 //job_provider route

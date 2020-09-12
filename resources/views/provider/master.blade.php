@@ -38,8 +38,8 @@
               Jobs
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
-              <a class="dropdown-item" href="#">post job</a>
-              <a class="dropdown-item" href="#">manage job</a>
+              <a class="dropdown-item" href="{{ url('/provider/jobs/create') }}">post job</a>
+              <a class="dropdown-item" href="{{ url('/provider/jobs') }}">manage job</a>
             </div>
           </li>
 

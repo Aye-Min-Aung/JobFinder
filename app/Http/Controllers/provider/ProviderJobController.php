@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\provider;
 
 use App\Http\Controllers\Controller;
+use App\JobCategory;
+use App\JobNature;
+use App\CompanyType;
 use Illuminate\Http\Request;
 
 class ProviderJobController extends Controller
@@ -14,7 +17,7 @@ class ProviderJobController extends Controller
      */
     public function index()
     {
-        return view('provider/dashboard');
+        return view('provider/joblist');
     }
 
     /**
@@ -24,7 +27,10 @@ class ProviderJobController extends Controller
      */
     public function create()
     {
-        //
+        $categories=JobCategory::all();
+        $natures=JobNature::all();
+        $types=CompanyType::all();
+        return view('provider/postjob',compact('categories','natures','types'));
     }
 
     /**
