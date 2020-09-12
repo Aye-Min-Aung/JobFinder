@@ -1,10 +1,10 @@
 @extends('admin/master')
 
 @section('title')
-Dashboard
+Company List
 @endsection
 
 @section('content')
-<h1>Dashboard </h1>
+<h1>Company List </h1>
 
 @endsection

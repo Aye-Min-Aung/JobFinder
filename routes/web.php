@@ -18,7 +18,31 @@ Route::get('/', function () {
     /*return 'hello';*/
 });
 
-//admin
 
-Route::get('/admin','AdminPageController@dashboard')->name('dashboard');
+//admin route
+Route::prefix('admin')->group(function () {
+
+    Route::get('/dashboard','admin\AdminPageController@dashboard')->name('dashboard');
+
+    Route::get('/companies','admin\AdminPageController@company')->name('company');
+
+    Route::get('/job_seeker','admin\AdminPageController@job_seeker')->name('job_seeker');
+
+    Route::resource('categories', 'admin\AdminCategoryController');
+});
+
+//job_provider route
+Route::prefix('provider')->group(function () {
+
+    Route::resource('jobs', 'provider\ProviderJobController');
+    
+});
+
+//job_seeker route
+Route::prefix('seeker')->group(function () {
+
+    Route::resource('jobs', 'seeker\SeekerJobController');
+});
+
+
 

@@ -1,10 +1,10 @@
 @extends('admin/master')
 
 @section('title')
-Dashboard
+Job Seeker List
 @endsection
 
 @section('content')
-<h1>Dashboard </h1>
+<h1>Job Seeker List </h1>
 
 @endsection

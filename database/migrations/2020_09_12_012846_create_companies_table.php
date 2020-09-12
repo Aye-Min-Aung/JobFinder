@@ -16,11 +16,17 @@ class CreateCompaniesTable extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->unsignedBigInteger('company_type');
             $table->text('logo');
             $table->string('email')->unique();
             $table->string('address');
             $table->string('web');
             $table->timestamps();
+
+            $table->foreign('company_type')
+                  ->references('id')
+                  ->on('company_types')
+                  ->onDelete('cascade');
         });
     }
 

@@ -1,10 +1,10 @@
 @extends('admin/master')
 
 @section('title')
-Dashboard
+Category List
 @endsection
 
 @section('content')
-<h1>Dashboard </h1>
+<h1>Category List Form</h1>
 
 @endsection
