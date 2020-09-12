@@ -50,7 +50,7 @@
     -category_id    (int)
     -nature_id      (int)
     -company_id     (int)
-    -location       (vchar 255)
+    -address       (vchar 255)
     -primary  skill (vchar 255)
     -secondary skill(vchar 255)
     -experience     (vchar 255)
@@ -104,7 +104,4 @@
     -
     -
     -
-    
-
-
 
