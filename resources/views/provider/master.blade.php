@@ -35,25 +35,26 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Jobs
+              Job
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
-              <a class="dropdown-item" href="{{ url('/provider/jobs/create') }}">post job</a>
-              <a class="dropdown-item" href="{{ url('/provider/jobs') }}">manage job</a>
+              <a class="dropdown-item" href="{{ route('postjobs.create') }}">post job</a>
+              <a class="dropdown-item" href="{{ route('postjobs.index') }}">manage job</a>
             </div>
           </li>
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Applicants
+              Company
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
-              <a class="dropdown-item" href="#">view applicants</a>
+              <a class="dropdown-item" href="#">company registeration</a>
+              <a class="dropdown-item" href="#">company management</a>
             </div>
           </li>
-
+          
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#">Applicant</a>
           </li>
 
           <li class="nav-item dropdown">
@@ -78,9 +79,9 @@
   <!-- /.container -->
 
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
+  <footer class="py-2 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website @php echo date('Y'); @endphp</p>
     </div>
     <!-- /.container -->
   </footer>

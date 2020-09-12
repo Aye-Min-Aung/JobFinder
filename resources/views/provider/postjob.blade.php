@@ -6,9 +6,9 @@ Post Job
 
 @section('content')
 <div class="container">
-    <h1>Post Job</h1>
+    <h3 class="text-center my-3 font-weight-bold">Post Job</h3>
     <div class="container">
-        <form action="" method="post">
+        <form action="{{ route('postjobs.store') }}" method="post">
             @csrf
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
@@ -28,46 +28,64 @@ Post Job
                   <textarea name="address" id="address" class="form-control"></textarea>
                 </div>
             </div>
-            
-            <fieldset class="form-group">
-              <div class="row">
-                <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-                <div class="col-sm-10">
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                    <label class="form-check-label" for="gridRadios1">
-                      First radio
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                    <label class="form-check-label" for="gridRadios2">
-                      Second radio
-                    </label>
-                  </div>
-                  <div class="form-check disabled">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-                    <label class="form-check-label" for="gridRadios3">
-                      Third disabled radio
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </fieldset>
             <div class="form-group row">
-              <div class="col-sm-2">Checkbox</div>
+              <label for="address" class="col-sm-2 col-form-label">Job Category</label>
               <div class="col-sm-10">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck1">
-                  <label class="form-check-label" for="gridCheck1">
-                    Example checkbox
-                  </label>
-                </div>
+                <select class="custom-select">
+                  @foreach($categories as $key => $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                  @endforeach
+                </select>
               </div>
             </div>
             <div class="form-group row">
+              <label for="address" class="col-sm-2 col-form-label">Job Nature</label>
               <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                <select class="custom-select">
+                  @foreach($natures as $key => $nature)
+                    <option value="{{ $nature->id }}">{{ $nature->name }}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="address" class="col-sm-2 col-form-label">Company</label>
+              <div class="col-sm-10">
+                <select class="custom-select">
+                  @foreach($companies as $company)
+                    <option value="">{{ $company->name }}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="salary" class="col-sm-2 col-form-label">Salary</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" id="salary" name="salary" placeholder="500000">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="pskill" class="col-sm-2 col-form-label">Primary Skill</label>
+              <div class="col-sm-10">
+                <textarea name="pskill" id="pskill" class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="sskill" class="col-sm-2 col-form-label">Secondary Skill</label>
+              <div class="col-sm-10">
+                <textarea name="sskill" id="sskill" class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="descrition" class="col-sm-2 col-form-label">Description</label>
+              <div class="col-sm-10">
+                <textarea name="description" id="description" class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-2"></div>
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-secondary form-control">Post Job</button>
               </div>
             </div>
           </form>

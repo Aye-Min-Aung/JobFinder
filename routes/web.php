@@ -34,14 +34,14 @@ Route::resource('categories', 'admin\AdminCategoryController');
 //job_provider route
 Route::prefix('provider')->group(function () {
 
-    Route::resource('jobs', 'provider\ProviderJobController');
+    Route::resource('postjobs', 'provider\ProviderJobController');
     
 });
 
 //job_seeker route
 Route::prefix('seeker')->group(function () {
 
-    Route::resource('jobs', 'seeker\SeekerJobController');
+    Route::resource('applyjobs', 'seeker\SeekerJobController');
 });
 
 
