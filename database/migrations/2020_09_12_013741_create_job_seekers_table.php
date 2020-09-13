@@ -21,7 +21,12 @@ class CreateJobSeekersTable extends Migration
             $table->text('address');
             $table->text('photo'); 
             $table->text('cv');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
         });
     }
 

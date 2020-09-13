@@ -90,10 +90,10 @@
   <!-- /.container -->
 
   <!-- Footer -->
-  <footer class="py-2 bg-dark">
-    <div class="container">
+  <footer class="sticky-bottom py-2 bg-dark ">
+    
       <p class="m-0 text-center text-white">Copyright &copy; Your Website @php echo date('Y'); @endphp</p>
-    </div>
+    
     <!-- /.container -->
   </footer>
 
