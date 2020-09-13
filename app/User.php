@@ -39,11 +39,11 @@ class User extends Authenticatable
 
     public function company($value='')
       {
-        return $this->hasOne('App\Company');
+        return $this->hasMany('App\Company');
       }
 
       public function jobseeker($value='')
       {
-        return $this->hasOne('App\JobSeeker');
+        return $this->hasMany('App\JobSeeker');
       }
 }

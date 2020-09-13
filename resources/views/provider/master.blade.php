@@ -50,7 +50,7 @@
               Company
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
-              <a class="dropdown-item" href="#">company registeration</a>
+              <a class="dropdown-item" href="{{ route('company.create')}}">company registeration</a>
               <a class="dropdown-item" href="#">company management</a>
             </div>
           </li>
@@ -67,14 +67,31 @@
           <li class="nav-item">
             <a class="nav-link" href="#">example</a>
           </li>
-
+          @php
+            $user = Auth::user();
+            if($user){
+              $username=$user->name;
+            }else{
+              $username="";
+            }
+          @endphp
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i>{{ $username }}</a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">edit profile</a>
-                <a class="dropdown-item" href="#">register</a>
+                <a class="dropdown-item" href="{{ route('customregister') }}">register</a>
+                <a class="dropdown-item" href="{{ route('customlogin') }}">login</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="login.html">Logout</a>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                          @csrf
+                                      </form>
+                </a>
+
             </div>
         </li>
           
@@ -86,14 +103,17 @@
 
 
   <!-- Page Content -->
-  @yield('content')
+  <div style="min-height:80vh">
+    @yield('content')
+  </div>
+ 
   <!-- /.container -->
 
   <!-- Footer -->
-  <footer class="py-2 bg-dark">
-    <div class="container">
+  <footer class="sticky-bottom py-2 bg-dark ">
+    
       <p class="m-0 text-center text-white">Copyright &copy; Your Website @php echo date('Y'); @endphp</p>
-    </div>
+    
     <!-- /.container -->
   </footer>
 

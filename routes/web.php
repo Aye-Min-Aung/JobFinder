@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,13 @@ Route::prefix('provider')->group(function () {
 
     Route::resource('postjobs', 'provider\ProviderJobController');
 
+    Route::resource('company', 'provider\ProviderCompanyController');
+
     Route::get('/postjobs/delete/{id}','provider\ProviderJobController@delete')->name('postjobs.delete');
+
+    Route::get('/register','provider\ProviderController@register')->name('customregister');
+
+    Route::get('/login','provider\ProviderController@login')->name('customlogin');
     
 });
 
@@ -48,3 +55,7 @@ Route::prefix('seeker')->group(function () {
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
