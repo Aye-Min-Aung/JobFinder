@@ -35,6 +35,8 @@ Route::resource('categories', 'admin\AdminCategoryController');
 Route::prefix('provider')->group(function () {
 
     Route::resource('postjobs', 'provider\ProviderJobController');
+
+    Route::get('/postjobs/delete/{id}','provider\ProviderJobController@delete')->name('postjobs.delete');
     
 });
 
