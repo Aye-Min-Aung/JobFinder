@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,10 @@ Route::prefix('provider')->group(function () {
     Route::resource('postjobs', 'provider\ProviderJobController');
 
     Route::get('/postjobs/delete/{id}','provider\ProviderJobController@delete')->name('postjobs.delete');
+
+    Route::get('/register','provider\ProviderController@register')->name('customregister');
+
+    Route::get('/login','provider\ProviderController@login')->name('customlogin');
     
 });
 
