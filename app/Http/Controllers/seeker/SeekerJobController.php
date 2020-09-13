@@ -4,6 +4,8 @@ namespace App\Http\Controllers\seeker;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\JobSeeker;
+
 
 class SeekerJobController extends Controller
 {
@@ -13,8 +15,9 @@ class SeekerJobController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('seeker/dashboard');
+    {   
+        $seekers=JobSeeker::all();
+        return view('seeker/jobseekerslist',compact('seekers'));
     }
 
     /**
