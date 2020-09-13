@@ -19,6 +19,8 @@
   <!-- Custom styles for this template -->
   <link href="{{ asset('provider/css/modern-business.css') }}" rel="stylesheet">
 
+  @yield('style')
+
 </head>
 
 <body>
@@ -52,9 +54,18 @@
               <a class="dropdown-item" href="#">company management</a>
             </div>
           </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Applicant
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
+              <a class="dropdown-item" href="#">view applicant</a>
+            </div>
+          </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="#">Applicant</a>
+            <a class="nav-link" href="#">example</a>
           </li>
 
           <li class="nav-item dropdown">
@@ -89,6 +100,9 @@
   <!-- Bootstrap core JavaScript -->
   <script src="{{ asset('provider/vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('provider/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  {{-- jquery cdn link --}}
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  @yield('script')
 
 </body>
 

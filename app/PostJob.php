@@ -14,12 +14,12 @@ class PostJob extends Model
 
     public function jobcategory($value='')
       {
-        return $this->belongsTo('App\JobCategory');
+        return $this->belongsTo('App\JobCategory','category_id');
       }
 
       public function jobnature($value='')
       {
-        return $this->belongsTo('App\JobNature');
+        return $this->belongsTo('App\JobNature','nature_id');
       }
 
       public function applyjobs($value='')
