@@ -50,7 +50,7 @@
               Company
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
-              <a class="dropdown-item" href="#">company registeration</a>
+              <a class="dropdown-item" href="{{ route('company.create')}}">company registeration</a>
               <a class="dropdown-item" href="#">company management</a>
             </div>
           </li>
