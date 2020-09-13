@@ -32,11 +32,11 @@ Route::resource('categories', 'admin\AdminCategoryController');
 });
 
 //job_provider route
-/*Route::prefix('provider')->group(function () {*/
+Route::prefix('provider')->group(function () {
 
     Route::resource('postjobs', 'provider\ProviderJobController');
     
-/*});*/
+});
 
 //job_seeker route
 Route::prefix('seeker')->group(function () {
