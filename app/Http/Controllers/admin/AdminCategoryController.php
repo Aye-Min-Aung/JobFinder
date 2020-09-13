@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\JobCategory;
 
 class AdminCategoryController extends Controller
 {
@@ -13,8 +14,8 @@ class AdminCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('admin/categorylist');
+    {    $categories=JobCategory::all();
+        return view('admin/categorylist',compact('categories'));
     }
 
     /**
@@ -36,6 +37,19 @@ class AdminCategoryController extends Controller
     public function store(Request $request)
     {
         //
+         $request->validate([
+            'name'=>'required',
+
+        ]);
+
+        //data insert
+            $category=new JobCategory;
+            $category->name=$request->name;
+            $job->save();
+
+            return redirect()->route('categories.index');
+
+
     }
 
     /**
@@ -44,7 +58,7 @@ class AdminCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(JobCategory $category)
     {
         //
     }
@@ -55,9 +69,11 @@ class AdminCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(JobCategory $category)
     {
         //
+         
+        return view('provider/editcategory',compact('category'));
     }
 
     /**
@@ -67,9 +83,19 @@ class AdminCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,JobCategory $category)
     {
         //
+          $request->validate([
+            'name'=>'required',
+
+        ]);
+
+        //data insert
+            $category->name=$request->name;
+            $job->save();
+
+            return redirect()->route('categories.index');
     }
 
     /**
@@ -78,8 +104,10 @@ class AdminCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(JobCategory $category)
     {
         //
+         $category->delete();
+        return redirect()->route('categories.index');
     }
 }
