@@ -16,8 +16,8 @@ class SeekerJobController extends Controller
      */
     public function index()
     {   
-        $seekers=JobSeeker::all();
-        return view('seeker/jobseekerslist',compact('seekers'));
+        /*$seekers=JobSeeker::all();
+        return view('/jobseekerslist',compact('seekers'));*/
     }
 
     /**
