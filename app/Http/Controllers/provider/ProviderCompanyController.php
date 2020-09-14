@@ -31,8 +31,8 @@ class ProviderCompanyController extends Controller
     {
         $companies=Company::all();
         $types=CompanyType::all();
-        $users=User::all();
-        return view('provider/company_registration',compact('companies','types','users'));
+        $users=User::all()
+        return view('provider/company_registration',compact('companies','types'));
     }
 
     /**
@@ -94,7 +94,7 @@ class ProviderCompanyController extends Controller
         //
          $companies=Company::all();
         $types=CompanyType::all();
-        $users=User::all();
+        $users=User::all()
         return view('provider/company_edit',compact('companies','types','users'));
     }
 
@@ -118,11 +118,10 @@ class ProviderCompanyController extends Controller
             'web'=>'required'
         ]);
        //if include file,upload file
-        if($request->hasFile('logo')){
         $imageName=time().'-'.$request->logo->extension();
         $request->photo->move(public_path('provider/companylogo'),$imageName);
         $path='provider/companylogo/'.$imageName;
-        }else{
+        else{
             $path=$request->oldlogo;
         }
         //data insert

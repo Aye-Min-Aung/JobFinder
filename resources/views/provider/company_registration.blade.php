@@ -8,7 +8,7 @@ Company Registration
 <div class="container">
 	<h3 class="text-center my-3 font-weight-bold">Company Registration</h3>
 	<div class="container">
-		<form action="{{route('company.store')}}" method="post" enctype="multipart/form-data">
+		<form action="" method="post">
 			@csrf
 			<div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
@@ -26,6 +26,7 @@ Company Registration
                 <label for="" class="col-sm-2 col-form-label">Logo</label>
                 <div class="col-sm-10">
                   <input type="file" class="form-control-file" id="logo" name="logo">
+                  <input type="hidden" name="oldlogo" value="{{$item->photo}}">
                 </div>
             </div>
             <div class="form-group row">
@@ -48,7 +49,7 @@ Company Registration
             </div>
             <div class="form-group row">
               <div class="col-2"></div>
-              <div class="col-sm-5">
+              <div class="col-sm-10">
                 <button type="submit" class="btn btn-secondary form-control">Register</button>
               </div>
             </div>
