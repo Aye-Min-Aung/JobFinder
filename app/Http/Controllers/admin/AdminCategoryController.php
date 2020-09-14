@@ -45,7 +45,7 @@ class AdminCategoryController extends Controller
         //data insert
             $category=new JobCategory;
             $category->name=$request->name;
-            $job->save();
+            $category->save();
 
             return redirect()->route('categories.index');
 
@@ -93,7 +93,7 @@ class AdminCategoryController extends Controller
 
         //data insert
             $category->name=$request->name;
-            $job->save();
+            $category->save();
 
             return redirect()->route('categories.index');
     }
