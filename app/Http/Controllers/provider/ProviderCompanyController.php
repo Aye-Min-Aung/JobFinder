@@ -31,8 +31,8 @@ class ProviderCompanyController extends Controller
     {
         $companies=Company::all();
         $types=CompanyType::all();
-        $users=User::all()
-        return view('provider/company_registration',compact('companies','types'));
+        $users=User::all();
+        return view('provider/company_registration',compact('companies','types','users'));
     }
 
     /**
@@ -56,9 +56,10 @@ class ProviderCompanyController extends Controller
         ]);
        //if include file,upload file
         $imageName=time().'-'.$request->logo->extension();
-        $request->photo->move(public_path('provider/companylogo'),$imageName);
+        $request->logo->move(public_path('provider/companylogo'),$imageName);
         $path='provider/companylogo/'.$imageName;
         //data insert
+            $company=new Company;
             $company->name=$request->name;
             $comapny->company_type=$request->type;
             $company->logo=$path;
@@ -94,8 +95,8 @@ class ProviderCompanyController extends Controller
         //
          $companies=Company::all();
         $types=CompanyType::all();
-        $users=User::all()
-        return view('provider/company_edit',compact('companies','types','users'));
+        // $users=User::all();
+        return view('provider/company_edit',compact('companies','types','company'));
     }
 
     /**
@@ -118,14 +119,16 @@ class ProviderCompanyController extends Controller
             'web'=>'required'
         ]);
        //if include file,upload file
+        if ($request->hasFile('logo')) {
         $imageName=time().'-'.$request->logo->extension();
-        $request->photo->move(public_path('provider/companylogo'),$imageName);
+        $request->logo->move(public_path('provider/companylogo'),$imageName);
         $path='provider/companylogo/'.$imageName;
+    }
         else{
             $path=$request->oldlogo;
         }
         //data insert
-            $company=new Company;
+           
             $company->name=$request->name;
             $comapny->company_type=$request->type;
             $company->logo=$path;
