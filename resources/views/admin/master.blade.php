@@ -50,18 +50,33 @@
                                 dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            {{-- job ctegory --}}
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayout1" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Job Categories
+                                Manage Jobs
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseLayout1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('categories.create') }}">Add Categories</a>
                                     <a class="nav-link" href="{{ route('categories.index') }}">Manage Categories</a>
+                                    <a class="nav-link" href="{{ route('natures.create') }}">Add Job Nature</a>
+                                    <a class="nav-link" href="{{ route('natures.index') }}">Manage Job Nature</a>
                                 </nav>
                             </div>
 
+                            {{-- job nature --}}
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayout2" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                               Pages
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayout2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="#"> Home Page</a>
+                                    <a class="nav-link" href="">Contact Page</a>
+                                </nav>
+                            </div>
                             <a class="nav-link" href="{{ route('company') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>
                                 list of companies
@@ -74,29 +89,25 @@
 
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                View
+                                Approvememt
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Approve Job</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">approve job</a>
+                                    <a class="nav-link" href="{{ route('admin.approvedjoblist') }}">Approved Jobs</a>
+                                    <a class="nav-link" href="{{ route('admin.unapprovedjoblist') }}">Requested Jobs</a>
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                Report
                             </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        Admin
                     </div>
                 </nav>
             </div>
@@ -111,7 +122,9 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div class="text-muted">Copyright &copy; JobFinder @php
+                                echo date('Y')
+                            @endphp</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

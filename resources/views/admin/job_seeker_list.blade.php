@@ -6,7 +6,7 @@ Job Seeker List
 
 @section('content')
 <div class="container">
-    <h3 class="text-center my-3 font-weight-bold">JobSeekers List </h3><a href="" class="float-right">add new jobseekers</a>
+    <h3 class="text-center my-3 font-weight-bold">JobSeekers List </h3>
     <div class="table-responsive">
         <table class="table table-hover">
             <thead>

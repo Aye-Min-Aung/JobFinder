@@ -4,9 +4,11 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\JobCategory;
+use App\JobNature;
+use App\PostJob;
+use Illuminate\Queue\Jobs\JobName;
 
-class AdminCategoryController extends Controller
+class AdminNatureController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +16,9 @@ class AdminCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {    
-        $categories=JobCategory::all();
-        return view('admin/categorylist',compact('categories'));
+    {
+        $natures=JobNature::all();
+        return view('admin/naturelist',compact('natures'));
     }
 
     /**
@@ -26,7 +28,7 @@ class AdminCategoryController extends Controller
      */
     public function create()
     {
-        return view('admin/addcategory');
+        return view('admin/addnature');
     }
 
     /**
@@ -38,17 +40,17 @@ class AdminCategoryController extends Controller
     public function store(Request $request)
     {
         //
-         $request->validate([
+        $request->validate([
             'name'=>'required',
 
         ]);
 
         //data insert
-            $category=new JobCategory;
-            $category->name=$request->name;
-            $category->save();
+            $nature=new JobNature();
+            $nature->name=$request->name;
+            $nature->save();
 
-            return redirect()->route('categories.index');
+            return redirect()->route('natures.index');
 
 
     }
@@ -59,7 +61,7 @@ class AdminCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(JobCategory $category)
+    public function show($id)
     {
         //
     }
@@ -70,11 +72,9 @@ class AdminCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(JobCategory $category)
+    public function edit(JobNature $nature)
     {
-        //
-         
-        return view('admin/editcategory',compact('category'));
+        return view('admin/editnature',compact('nature'));
     }
 
     /**
@@ -84,19 +84,19 @@ class AdminCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,JobCategory $category)
+    public function update(Request $request,JobNature $nature)
     {
         //
-          $request->validate([
+        $request->validate([
             'name'=>'required',
 
         ]);
 
         //data insert
-            $category->name=$request->name;
-            $category->save();
+            $nature->name=$request->name;
+            $nature->save();
 
-            return redirect()->route('categories.index');
+            return redirect()->route('natures.index');
     }
 
     /**
@@ -105,10 +105,9 @@ class AdminCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(JobCategory $category)
+    public function destroy(JobNature $nature)
     {
-        //
-         $category->delete();
-        return redirect()->route('categories.index');
+        $nature->delete();
+        return redirect()->route('natures.index');
     }
 }

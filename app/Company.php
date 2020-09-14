@@ -14,7 +14,7 @@ class Company extends Model
 
     public function companytype($value='')
       {
-        return $this->belongsTo('App\CompanyType');
+        return $this->belongsTo('App\CompanyType','company_type');
       }
 
       public function postjobs($value='')
@@ -24,6 +24,6 @@ class Company extends Model
 
       public function user($value='')
       {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User','user_id');
       }
 }

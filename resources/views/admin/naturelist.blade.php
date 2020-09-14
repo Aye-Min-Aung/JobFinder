@@ -1,18 +1,18 @@
 @extends('admin/master')
 
 @section('title')
-Category List
+Nature List
 @endsection
 
 @section('content')
 <div class="container" style="min-height:550px">
-    <h3 class="text-center my-3 font-weight-bold">Job Categoies List </h3><a href="{{ route('categories.create') }}" class="float-right">add new categories</a>
+    <h3 class="text-center my-3 font-weight-bold">Job Nature List </h3><a href="{{ route('natures.create') }}" class="float-right">add new natures</a>
     <div class="table-responsive">
         <table class="table table-hover">
             <thead>
               <tr>
                 <th>No</th>
-                <th>Category Name</th>
+                <th>Nature Name</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -20,14 +20,14 @@ Category List
                 @php
                     $i=1;
                 @endphp
-            @foreach($categories as $category)
+            @foreach($natures as $nature)
               <tr>
                 <td>{{ $i++ }}</td>
-                <td>{{ $category->name }}</td>
+                <td>{{ $nature->name }}</td>
                 <td>
-                   <a href="{{route('categories.edit',$category->id)}}" class="btn btn-warning">Edit</a>
+                   <a href="{{route('natures.edit',$nature->id)}}" class="btn btn-warning">Edit</a>
 
-                   <form action="{{route('categories.destroy',$category->id)}}" onsubmit="return confirm('Are You Sure To Delete?')" class="d-inline-block" method="POST">
+                   <form action="{{route('natures.destroy',$nature->id)}}" onsubmit="return confirm('Are You Sure To Delete?')" class="d-inline-block" method="POST">
                     @csrf
                     @method("DELETE")
                     <button class="btn btn-info" type="submit">Delete</button>

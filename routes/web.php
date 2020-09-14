@@ -21,16 +21,32 @@ Route::get('/', function () {
 
 
 //admin route
-/*Route::prefix('admin')->group(function () {*/
+Route::prefix('admin')->group(function () {
 
 Route::get('/dashboard','admin\AdminPageController@dashboard')->name('dashboard');
 
 Route::get('/companies','admin\AdminPageController@company')->name('company');
 
+Route::get('/appjoblist','admin\AdminPageController@appjoblist')->name('admin.approvedjoblist');
+
+Route::get('/unappjoblist','admin\AdminPageController@unappjoblist')->name('admin.unapprovedjoblist');
+
+Route::get('/jobdetail/{id}','admin\AdminPageController@jobdetail')->name('admin.jobdetail');
+
+Route::get('/deletejob/{id}','admin\AdminPageController@deletejob')->name('admin.deletejob');
+
+Route::get('/approvejob/{id}','admin\AdminPageController@approvejob')->name('admin.approvejob');
+
+Route::get('/unapprovejob/{id}','admin\AdminPageController@unapprovejob')->name('admin.unapprovejob');
+
 Route::get('/job_seeker','admin\AdminPageController@job_seeker')->name('job_seeker');
 
 Route::resource('categories', 'admin\AdminCategoryController');
-/*});*/
+
+Route::resource('natures', 'admin\AdminNatureController');
+
+Route::get('/userinfo/{id}','admin\AdminPageController@userinfo')->name('admin.userinfo');
+});
 
 //job_provider route
 Route::prefix('provider')->group(function () {
