@@ -27,6 +27,8 @@ Route::get('/dashboard','admin\AdminPageController@dashboard')->name('dashboard'
 
 Route::get('/companies','admin\AdminPageController@company')->name('company');
 
+Route::get('/deletecompany/{id}','admin\AdminPageController@deletecompany')->name('admin.deletecompany');
+
 Route::get('/appjoblist','admin\AdminPageController@appjoblist')->name('admin.approvedjoblist');
 
 Route::get('/unappjoblist','admin\AdminPageController@unappjoblist')->name('admin.unapprovedjoblist');
@@ -40,6 +42,8 @@ Route::get('/approvejob/{id}','admin\AdminPageController@approvejob')->name('adm
 Route::get('/unapprovejob/{id}','admin\AdminPageController@unapprovejob')->name('admin.unapprovejob');
 
 Route::get('/job_seeker','admin\AdminPageController@job_seeker')->name('job_seeker');
+
+Route::get('/deleteseeker/{id}','admin\AdminPageController@deleteseeker')->name('admin.ddeleteseeker');
 
 Route::resource('categories', 'admin\AdminCategoryController');
 

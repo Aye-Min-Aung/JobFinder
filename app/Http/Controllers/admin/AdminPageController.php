@@ -68,5 +68,20 @@ class AdminPageController extends Controller
         $user=User::find($id);
         return view('admin/userinfo',compact('user'));
     }
+
+     public function deletecompany($id)
+    {
+        //
+        $company=Company::find($id);
+        $company->delete();
+        return back();
+    }
+     public function deleteseeker($id)
+    {
+        //
+        $seeker=JobSeeker::find($id);
+        $seeker->delete();
+        return back();
+    }
     
 }
