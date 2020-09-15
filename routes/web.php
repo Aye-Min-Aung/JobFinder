@@ -71,7 +71,10 @@ Route::prefix('provider')->group(function () {
 Route::prefix('seeker')->group(function () {
 
     Route::resource('applyjobs', 'seeker\SeekerJobController');
+   	Route::get('/login','seeker\SeekerPageController@login')->name('seekerlogin');
+   	Route::get('/register','seeker\SeekerPageController@register')->name('seekerregister');
 });
+
 
 
 
