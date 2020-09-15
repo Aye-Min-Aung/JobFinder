@@ -20,8 +20,14 @@ class ProviderJobController extends Controller
      */
     public function index()
     {   $user_id=Auth::user()->id;
-        $jobs=PostJob::where('user_id',$user_id)->get();
-        return view('provider/joblist',compact('jobs'));
+        $jobs=PostJob::where('user_id',$user_id)
+                        ->where('status','1')
+                        ->get();
+
+        $pjobs=PostJob::where('user_id',$user_id)
+                        ->where('status','0')
+                        ->get();
+        return view('provider/joblist',compact('jobs','pjobs'));
     }
 
     /**

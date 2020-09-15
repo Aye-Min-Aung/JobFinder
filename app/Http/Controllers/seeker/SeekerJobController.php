@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\seeker;
 
 use App\Http\Controllers\Controller;
+use App\JobCategory;
 use Illuminate\Http\Request;
 use App\JobSeeker;
-
+use App\PostJob;
+use App\JobNature;
 
 class SeekerJobController extends Controller
 {
@@ -15,9 +17,10 @@ class SeekerJobController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        /*$seekers=JobSeeker::all();
-        return view('/jobseekerslist',compact('seekers'));*/
+    {   $categories=JobCategory::all();
+        $natures=JobNature::all();
+        $postjobs=PostJob::all();
+        return view('seeker/findjob',compact('postjobs','categories','natures'));
     }
 
     /**
@@ -49,7 +52,8 @@ class SeekerJobController extends Controller
      */
     public function show($id)
     {
-        //
+        $job=PostJob::find($id);
+        return view('seeker/jobdetail',compact('job'));
     }
 
     /**

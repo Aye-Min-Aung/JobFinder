@@ -18,6 +18,7 @@
 
   <!-- Custom styles for this template -->
   <link href="{{ asset('provider/css/modern-business.css') }}" rel="stylesheet">
+  @yield('style')
 
 </head>
 
@@ -33,12 +34,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Jobs
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
-              <a class="dropdown-item" href="#">Find Job</a>
+              <a class="dropdown-item" href="{{ route('applyjobs.index') }}">Find Job</a>
             </div>
           </li>
 
