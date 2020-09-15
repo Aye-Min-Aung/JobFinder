@@ -19,6 +19,8 @@ class CreatePostJobsTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('nature_id');
             $table->unsignedBigInteger('company_id');
+            $table->unsignedBigInteger('user_id');
+
             $table->string('address');
             $table->string('status')->default('0');
             $table->string('primary_skill');
@@ -41,6 +43,11 @@ class CreatePostJobsTable extends Migration
             $table->foreign('company_id')
                   ->references('id')
                   ->on('companies')
+                  ->onDelete('cascade');
+
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
                   ->onDelete('cascade');
             $table->timestamps();
         });
