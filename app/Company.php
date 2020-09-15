@@ -8,7 +8,7 @@ class Company extends Model
 {
 
     protected $fillable = [
-        'name','logo','email','address',
+        'name','company_type','user_id','logo','email','address',
         'web'
     ];
 
