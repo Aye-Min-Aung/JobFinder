@@ -43,7 +43,7 @@ Route::get('/unapprovejob/{id}','admin\AdminPageController@unapprovejob')->name(
 
 Route::get('/job_seeker','admin\AdminPageController@job_seeker')->name('job_seeker');
 
-Route::get('/deleteseeker/{id}','admin\AdminPageController@deleteseeker')->name('admin.ddeleteseeker');
+Route::get('/deleteseeker/{id}','admin\AdminPageController@deleteseeker')->name('admin.deleteseeker');
 
 Route::resource('categories', 'admin\AdminCategoryController');
 
