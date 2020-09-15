@@ -35,4 +35,8 @@ class SeekerPageController extends Controller
         $applyjob->save();
         return back();
     }
+
+    public function viewapplyjob(){
+        return view('seeker.viewapplyjob');
+    }
 }

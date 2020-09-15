@@ -51,7 +51,7 @@
               Applicants
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
-              <a class="dropdown-item" href="#">view applied Job</a>
+              <a class="dropdown-item" href="{{ route('seeker.viewapplyjobs') }}">view applied Job</a>
             </div>
           </li>
 

@@ -79,6 +79,8 @@ Route::prefix('seeker')->group(function () {
     Route::get('/home','seeker\SeekerPageController@home')->name('seeker.home');
 
     Route::get('/applyjobs/add/{id}','seeker\SeekerPageController@insert')->name('seeker.insert');
+
+    Route::get('/viewapplyjob','seeker\SeekerPageController@viewapplyjob')->name('seeker.viewapplyjobs');
 });
 
 

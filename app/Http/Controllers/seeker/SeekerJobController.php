@@ -19,7 +19,7 @@ class SeekerJobController extends Controller
     public function index()
     {   $categories=JobCategory::all();
         $natures=JobNature::all();
-        $postjobs=PostJob::all();
+        $postjobs=PostJob::where('status','1')->get();
         return view('seeker/findjob',compact('postjobs','categories','natures'));
     }
 
