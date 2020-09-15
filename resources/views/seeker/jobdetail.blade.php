@@ -4,13 +4,38 @@
  Job Detail
 @endsection
 
+@section('style')
+<style>
+    #job-detail{ 
+	width: 100%; 
+	height: 80vh;
+	background: linear-gradient(to
+	bottom,rgba(6,12,34,0.8),rgba(6,12,34,0.8)),
+	url('{{ asset('seeker/img/job-detail.jpg')}}');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+ }
+</style>
+@endsection
+
 @section('content')
-<h4 class="text-center font-weight-bold py-4">Job Detail</h4>
+<!--background image-->
+{{-- <div class="container-fluid">
+    <div id="job-detail">.
+        <h1 class="text-light font-weight-bold display-4 text-center mt-5">Backend Developer</h1>
+    </div>
+</div> --}}
+<div class="container-fluid">
+    <img src="{{ asset('seeker/img/job-detail.jpg') }}" alt="" width="100%" style="height: 80vh;">
+</div>
+
+<!--background image-->
 <div class="container my-5">
     <div class="row">
         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
             <div class="row mb-4">
-                <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-12 border">
+                <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-12 ">
                     <img src="{{ asset($job->company->logo) }}" alt="company logo" width="100px" height="100px">
                 </div>
                 <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12">
@@ -54,6 +79,7 @@
                             <th>Email:</th>
                             <td>{{ $job->company->email }}</td>
                         </tr>
+                        
                     </table>
                 </div>
             </div>
@@ -82,6 +108,12 @@
                 <tr>
                     <td>Salary</td>
                     <td> {{ $job->salary }} </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <a href="{{ route('seeker.insert',$job->id) }}" class="btn btn-danger">Apply</a>
+                    </td>
                 </tr>
                 
             </table>

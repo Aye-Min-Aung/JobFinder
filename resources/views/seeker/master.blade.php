@@ -35,7 +35,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="{{ route('seeker.home') }}">Home</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -59,13 +59,37 @@
             <a class="nav-link" href="#">Contact</a>
           </li>
 
+          @php
+            $user = Auth::user();
+            if($user){
+              $username=$user->name;
+            }else{
+              $username="";
+            }
+          @endphp
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i>{{ $username }}</a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                @auth
                 <a class="dropdown-item" href="#">edit profile</a>
-                <a class="dropdown-item" href="#">register</a>
+                @endauth
+                @guest
+                <a class="dropdown-item" href="{{ route('customregister') }}">register</a>
+                <a class="dropdown-item" href="{{ route('customlogin') }}">login</a>
+                @endguest
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="login.html">Logout</a>
+                @auth
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                          @csrf
+                                      </form>
+                </a>
+                @endauth
+
             </div>
         </li>
           
@@ -83,7 +107,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Job Finder @php echo date('Y') @endphp</p>
     </div>
     <!-- /.container -->
   </footer>
