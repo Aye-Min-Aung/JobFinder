@@ -8,6 +8,7 @@ use App\JobNature;
 use App\Company;
 use App\PostJob;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\CssSelector\Node\PseudoNode;
 
 class ProviderJobController extends Controller
@@ -18,7 +19,8 @@ class ProviderJobController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $jobs=PostJob::all();
+    {   $user_id=Auth::user()->id;
+        $jobs=PostJob::where('user_id',$user_id)->get();
         return view('provider/joblist',compact('jobs'));
     }
 
@@ -31,7 +33,8 @@ class ProviderJobController extends Controller
     {
         $categories=JobCategory::all();
         $natures=JobNature::all();
-        $companies=Company::all();
+        $user_id=Auth::user()->id;
+        $companies=Company::where('user_id',$user_id)->get();
         return view('provider/postjob',compact('categories','natures','companies'));
     }
 
@@ -70,6 +73,7 @@ class ProviderJobController extends Controller
             $job->primary_skill=$request->pskill;
             $job->secondary_skill=$request->sskill;
             $job->experience=$request->experience;
+            $job->user_id=Auth::user()->id;
             $job->description=$request->description;
 
             $job->save();

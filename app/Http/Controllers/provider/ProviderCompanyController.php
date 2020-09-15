@@ -7,6 +7,7 @@ use App\Company;
 use App\CompanyType;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProviderCompanyController extends Controller
 {
@@ -16,8 +17,9 @@ class ProviderCompanyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $companies=Company::all();
+    {   
+        $user_id=Auth::user()->id;
+        $companies=Company::where('user_id',$user_id)->get();
         return view('provider/companylist',compact('companies'));
         
     }
@@ -63,7 +65,7 @@ class ProviderCompanyController extends Controller
             $company->name=$request->name;
             $company->company_type=$request->type;
             $company->logo=$path;
-            $company->user_id=1;
+            $company->user_id=Auth::user()->id;
             $company->email=$request->email;
             $company->address=$request->address;
             $company->web=$request->web;
@@ -129,7 +131,7 @@ class ProviderCompanyController extends Controller
         //data insert
             
             $company->name=$request->name;
-            $comapny->company_type=$request->type;
+            $company->company_type=$request->type;
             $company->logo=$path;
             $company->user_id=1;
             $company->email=$request->email;

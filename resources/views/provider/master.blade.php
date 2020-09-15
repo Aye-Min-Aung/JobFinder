@@ -35,6 +35,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+          @auth
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Job
@@ -44,17 +45,16 @@
               <a class="dropdown-item" href="{{ route('postjobs.index') }}">manage job</a>
             </div>
           </li>
-
+         
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Company
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
               <a class="dropdown-item" href="{{ route('company.create')}}">company registeration</a>
-              <a class="dropdown-item" href="#">company management</a>
+              <a class="dropdown-item" href="{{ route('company.index') }}">company management</a>
             </div>
           </li>
-
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Applicant
@@ -63,7 +63,7 @@
               <a class="dropdown-item" href="#">view applicant</a>
             </div>
           </li>
-          
+          @endauth
           <li class="nav-item">
             <a class="nav-link" href="#">example</a>
           </li>
@@ -78,10 +78,15 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i>{{ $username }}</a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                @auth
                 <a class="dropdown-item" href="#">edit profile</a>
+                @endauth
+                @guest
                 <a class="dropdown-item" href="{{ route('customregister') }}">register</a>
                 <a class="dropdown-item" href="{{ route('customlogin') }}">login</a>
+                @endguest
                 <div class="dropdown-divider"></div>
+                @auth
                 <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -91,6 +96,7 @@
                                           @csrf
                                       </form>
                 </a>
+                @endauth
 
             </div>
         </li>
@@ -112,7 +118,7 @@
   <!-- Footer -->
   <footer class="sticky-bottom py-2 bg-dark ">
     
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website @php echo date('Y'); @endphp</p>
+      <p class="m-0 text-center text-white">Copyright &copy; JobFinder @php echo date('Y'); @endphp</p>
     
     <!-- /.container -->
   </footer>
