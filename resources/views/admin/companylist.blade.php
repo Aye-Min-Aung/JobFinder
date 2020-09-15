@@ -19,6 +19,7 @@ Company List
             <th>Email</th>
             <th>Web</th>
             <th>Address</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -35,6 +36,11 @@ Company List
             <td>{{ $company->email }}</td>
             <td>{{ $company->web }}</td>
             <td>{{ $company->address }}</td>
+            <td>
+                   <a href="{{ route('admin.deletecompany',$company->id) }}" class="action text-danger"><i class="fas fa-trash" title="delete"></i></a>
+
+
+                </td>
           </tr>
         @endforeach
         </tbody>

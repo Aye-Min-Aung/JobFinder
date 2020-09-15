@@ -34,12 +34,8 @@ Job Seeker List
                 <td>{{ $seeker->email }}</td>
                 <td>{{ $seeker->address }}</td>
                  <td>{{ $seeker->cv}}</td>
-                <td colspan="3">
-                    <a href="" class="action text-danger"><i class="far fa-eye"></i></a>
-
-                    <a href="" class="action text-danger"><i class="far fa-edit"></i></a>
-
-                    <a href="" class="action text-danger"><i class="fas fa-trash"></i></a>
+                <td>
+                   <a href="{{ route('admin.deleteseeker',$seeker->id) }}" class="action text-danger"><i class="fas fa-trash" title="delete"></i></a>
                 </td>
               </tr>
             @endforeach
