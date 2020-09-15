@@ -12,6 +12,6 @@ class JobCategory extends Model
     
     public function postjobs($value='')
       {
-        return $this->hasMany('App\PostJob');
+        return $this->hasMany('App\PostJob','category_id');
       }
 }
