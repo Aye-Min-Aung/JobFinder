@@ -6,7 +6,9 @@ Category List
 
 @section('content')
 <div class="container" style="min-height:550px">
-    <h3 class="text-center my-3 font-weight-bold">Job Categoies List </h3><a href="{{ route('categories.create') }}" class="float-right">add new categories</a>
+    <h3 class="text-center my-3 font-weight-bold">Job Categories List </h3><a href="{{ route('categories.create') }}" class="float-right btn btn-outline-success">add new categories</a>
+    <br>
+    <br>
     <div class="table-responsive">
         <table class="table table-hover">
             <thead>

@@ -73,7 +73,7 @@
                             </a>
                             <div class="collapse" id="collapseLayout2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#"> Home Page</a>
+                                    <a class="nav-link" href="{{ route('dashboard') }}"> Home Page</a>
                                     <a class="nav-link" href="">Contact Page</a>
                                 </nav>
                             </div>

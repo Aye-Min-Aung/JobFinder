@@ -6,6 +6,7 @@ User Info
 
 @section('content')
 <h1>User Infomation</h1>
+<br><br>
 <div class="table-responsive">
     <table class="table">
         <thead>

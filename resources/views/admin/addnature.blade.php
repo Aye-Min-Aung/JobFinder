@@ -7,6 +7,7 @@ Add New Nature
 @section('content')
 <div class="container">
     <h3 class="text-center my-3 font-weight-bold">Add Nature</h3>
+    <br><br>
     <div class="container">
         <form action="{{ route('natures.store') }}" method="post">
             @csrf

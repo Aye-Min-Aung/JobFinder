@@ -6,6 +6,7 @@ Approve Job
 
 @section('content')
 <h4>Job Approvement</h4>
+<br><br>
 <div class="container">
     <div class="table-responsive">
         <table class="table table-hover">

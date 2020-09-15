@@ -6,6 +6,7 @@ Company List
 
 @section('content')
 <h1>Company List </h1>
+<br><br>
 
 <div class="table-responsive">
     <table class="table table-hover">

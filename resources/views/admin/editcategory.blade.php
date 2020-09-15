@@ -7,6 +7,7 @@ Edit Category
 @section('content')
 <div class="container">
     <h3 class="text-center my-3 font-weight-bold">Edit Category</h3>
+    <br><br>
     <div class="container">
         <form action="{{ route('categories.update',$category->id) }}" method="post">
             @csrf

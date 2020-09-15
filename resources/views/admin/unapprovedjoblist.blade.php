@@ -6,6 +6,7 @@ Unapprove Job
 
 @section('content')
 <h4 class="text-center font-weight-bold my-3">Requested Job</h4>
+<br><br>
 
 <div class="container">
     <div class="table-responsive">
