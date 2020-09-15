@@ -14,9 +14,9 @@ My Companies
             <thead>
               <tr>
                 <th>No</th>
+                <th>Logo</th>
                 <th>Company Name</th>
                 <th>Company Type</th>
-                <th>Logo</th>
                 <th>Email</th>
                 <th>Address</th>
                 <th colspan="3">Action</th>
@@ -29,9 +29,9 @@ My Companies
             @foreach($companies as $company)
               <tr>
                 <td>{{ $i++ }}</td>
+                <td> <img src="{{asset($company->logo)}}" width="100" height="100"> </td>
                 <td>{{ $company->name }}</td>
                 <td>{{ $company->company_type }}</td>
-                <td> <img src="{{asset($company->logo)}}" width="100" height="100"> </td>
                 <td>{{ $company->email }}</td>
                 <td>{{ $company->address }}</td>
                 <td colspan="3">
