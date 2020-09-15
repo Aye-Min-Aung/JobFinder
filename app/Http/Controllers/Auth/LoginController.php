@@ -39,19 +39,20 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    // protected function authenticated(Request $request, $user)
-    // {
-    //     //user role
-    //     $roles=$user->getRoleNames();
+    protected function authenticated(Request $request, $user)
+    {
+        //user role
+        $roles=$user->getRoleNames();
 
-    //     //check user role
-    //     switch($roles[0]){
-    //         case 'Admin':
-    //                 return redirect('dashboard');
-    //         case 'provider':
-    //                 return redirect('postjobs.index');
-    //         case 'seeker':
-    //                 return redirect('applyjobs.index');
-    //     }
-    // }
+        //check user role
+        switch($roles[0]){
+            case 'Seeker':
+                return redirect()->route('seeker.home');
+            case 'Provider':
+                return redirect()->route('company.create');
+            case 'Admin':
+                return redirect()->route('dashboard');
+            
+        }
+    }
 }
