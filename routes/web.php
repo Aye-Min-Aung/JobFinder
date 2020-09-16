@@ -21,7 +21,8 @@ Route::get('/', function () {
 
 
 //admin route
-Route::prefix('admin')->group(function () {
+// Route::middleware('role:Admin')->group(function(){
+    Route::prefix('admin')->group(function () {
 
 Route::get('/dashboard','admin\AdminPageController@dashboard')->name('dashboard');
 
@@ -51,8 +52,11 @@ Route::resource('natures', 'admin\AdminNatureController');
 
 Route::get('/userinfo/{id}','admin\AdminPageController@userinfo')->name('admin.userinfo');
 });
+// });
+
 
 //job_provider route
+// Route::middleware('role:Provider')->group(function(){
 Route::prefix('provider')->group(function () {
 
     Route::resource('postjobs', 'provider\ProviderJobController');
@@ -70,8 +74,10 @@ Route::prefix('provider')->group(function () {
     Route::get('/delete/{id}','provider\ProviderCompanyController@delete')->name('company.delete');
     
 });
+// });
 
 //job_seeker route
+// Route::middleware('role:Seeker')->group(function(){
 Route::prefix('seeker')->group(function () {
 
     Route::resource('applyjobs', 'seeker\SeekerJobController');
@@ -90,6 +96,7 @@ Route::prefix('seeker')->group(function () {
 
     Route::post('/editprofile/{id}','seeker\SeekerPageController@updateprofile')->name('seeker.updateprofile');
 });
+// });
 
 
 
