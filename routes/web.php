@@ -64,6 +64,10 @@ Route::prefix('provider')->group(function () {
     Route::get('/register','provider\ProviderController@register')->name('customregister');
 
     Route::get('/login','provider\ProviderController@login')->name('customlogin');
+
+    Route::get('/viewapplicant','provider\ProviderController@viewapplicant')->name('provider.applicant');
+
+    Route::get('/delete/{id}','provider\ProviderCompanyController@delete')->name('company.delete');
     
 });
 
@@ -81,6 +85,10 @@ Route::prefix('seeker')->group(function () {
     Route::get('/applyjobs/add/{id}','seeker\SeekerPageController@insert')->name('seeker.insert');
 
     Route::get('/viewapplyjob','seeker\SeekerPageController@viewapplyjob')->name('seeker.viewapplyjobs');
+
+    Route::get('/editprofile','seeker\SeekerPageController@editprofile')->name('seeker.editprofile');
+
+    Route::post('/editprofile/{id}','seeker\SeekerPageController@updateprofile')->name('seeker.updateprofile');
 });
 
 

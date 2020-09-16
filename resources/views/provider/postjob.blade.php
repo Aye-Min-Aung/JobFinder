@@ -73,7 +73,7 @@ Post Job
             <div class="form-group row">
               <label for="experience" class="col-sm-2 col-form-label">Experience</label>
               <div class="col-sm-10">
-                <input type="number" class="form-control" id="experience" name="experience">
+                <input type="number" class="form-control" id="experience" name="experience" placeholder="Eg.2 years">
               </div>
             </div>
             <div class="form-group row">

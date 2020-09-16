@@ -68,7 +68,7 @@ home
                         </select>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 text-center">
-                        <a href="" class="btn btn-danger px-5">Find</a>
+                        <a href="{{ route('applyjobs.index') }}" class="btn btn-danger px-5">Find</a>
                     </div>
                 </div>
             </div>

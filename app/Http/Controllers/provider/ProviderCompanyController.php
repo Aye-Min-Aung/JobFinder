@@ -92,13 +92,13 @@ class ProviderCompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Company $company)
+    public function edit($id)
     {
         //
-         $companies=Company::all();
+         $company=Company::find($id);
         $types=CompanyType::all();
         $users=User::all();
-        return view('provider/editcompany',compact('companies','types','users'));
+        return view('provider/editcompany',compact('company','types','users'));
     }
 
     /**
@@ -151,6 +151,15 @@ class ProviderCompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $company=Company::find($id);
+        $company->delete();
+        return back();
+    }
+
+    public function delete($id)
+    {
+        $company=Company::find($id);
+        $company->delete();
+        return back();
     }
 }

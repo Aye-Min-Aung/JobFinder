@@ -71,7 +71,7 @@
             <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i>{{ $username }}</a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 @auth
-                <a class="dropdown-item" href="#">edit profile</a>
+                <a class="dropdown-item" href="{{ route('seeker.editprofile') }}">edit profile</a>
                 @endauth
                 @guest
                 <a class="dropdown-item" href="{{ route('customregister') }}">register</a>

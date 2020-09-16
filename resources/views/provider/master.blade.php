@@ -60,7 +60,7 @@
               Applicant
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
-              <a class="dropdown-item" href="#">view applicant</a>
+              <a class="dropdown-item" href="{{ route('provider.applicant') }}">view applicant</a>
             </div>
           </li>
           @endauth

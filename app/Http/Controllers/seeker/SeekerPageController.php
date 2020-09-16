@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\seeker;
 
 use App\ApplyJob;
+use App\Company;
 use App\Http\Controllers\Controller;
 use App\JobCategory;
 use App\PostJob;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SeekerPageController extends Controller
 {
@@ -37,6 +39,15 @@ class SeekerPageController extends Controller
     }
 
     public function viewapplyjob(){
+        $user_id=Auth::user()->id;
         return view('seeker.viewapplyjob');
+    }
+
+    public function editprofile(){
+        return view('seeker.editprofile');
+    }
+
+    public function updateprofile($id){
+        
     }
 }

@@ -1,6 +1,7 @@
 @extends('seeker/master')
 
 @section('title')
+Find Job
 @endsection
 
 @section('style')

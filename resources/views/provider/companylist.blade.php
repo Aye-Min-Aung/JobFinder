@@ -37,9 +37,15 @@ My Companies
                 <td colspan="3">
                     <a href="#" class="action text-danger"><i class="far fa-eye"></i></a>
 
-                    <a href="#" class="action text-danger"><i class="far fa-edit"></i></a>
+                    <a href="{{ route('company.edit',$company->id) }}" class="action text-danger"><i class="far fa-edit"></i></a>
 
-                    <a href="#" class="action text-danger"><i class="fas fa-trash"></i></a>
+                    <a href="{{ route('company.delete',$company->id) }}" class="action text-danger"><i class="fas fa-trash"></i></a>
+
+                    {{-- <form action="{{ route('company.destroy',$company->id) }}">
+                      @csrf
+                    @method('delete')
+                    <input type="submit" name="" id="" value="delete">
+                    </form> --}}
                 </td>
               </tr>
             @endforeach

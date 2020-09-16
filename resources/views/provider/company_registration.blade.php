@@ -57,6 +57,7 @@ Company Registration
                 <button type="submit" class="btn btn-secondary form-control">Register</button>
               </div>
             </div>
+            <p class="text-center">if you already have company, <a href="{{ route('postjobs.create') }}"> post job now</a></p>
 		</form>
 	</div>
 </div>
