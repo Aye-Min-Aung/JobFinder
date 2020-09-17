@@ -62,6 +62,8 @@
                                     <a class="nav-link" href="{{ route('categories.index') }}">Manage Categories</a>
                                     <a class="nav-link" href="{{ route('natures.create') }}">Add Job Nature</a>
                                     <a class="nav-link" href="{{ route('natures.index') }}">Manage Job Nature</a>
+                                     <a class="nav-link" href="{{ route('companytypes.create') }}">Add Company Types</a>
+                                    <a class="nav-link" href="{{ route('companytypes.index') }}">Manage Company Types</a>
                                 </nav>
                             </div>
 

@@ -1,27 +1,26 @@
 @extends('admin/master')
 
 @section('title')
-Edit Nature
+Add New Company Type
 @endsection
 
 @section('content')
 <div class="container">
-    <h3 class="text-center my-3 font-weight-bold">Edit</h3>
+    <h3 class="text-center my-3 font-weight-bold">Add CompanyTypes</h3>
     <br><br>
     <div class="container">
-        <form action="{{ route('natures.update',$nature->id) }}" method="post">
+        <form action="{{ route('companytypes.store') }}" method="post">
             @csrf
-            @method('put')
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Name:</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" id="name" name="name" value="{{ $nature->name }}">
+                  <input type="text" class="form-control" id="name" name="name">
                 </div>
             </div>
             <div class="form-group row">
               <div class="col-2"></div>
               <div class="col-sm-5">
-                <button type="submit" class="btn btn-secondary form-control">Edit</button>
+                <button type="submit" class="btn btn-secondary form-control">Create</button>
               </div>
             </div>
           </form>

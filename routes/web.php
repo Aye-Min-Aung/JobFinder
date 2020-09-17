@@ -50,6 +50,8 @@ Route::resource('categories', 'admin\AdminCategoryController');
 
 Route::resource('natures', 'admin\AdminNatureController');
 
+Route::resource('companytypes', 'admin\AdminCompanyTypeController');
+
 Route::get('/userinfo/{id}','admin\AdminPageController@userinfo')->name('admin.userinfo');
 });
  });

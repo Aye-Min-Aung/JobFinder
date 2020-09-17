@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\CompanyType;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\CompanyType;
+
 
 class AdminCompanyTypeController extends Controller
 {
@@ -15,6 +17,8 @@ class AdminCompanyTypeController extends Controller
     public function index()
     {
         //
+         $companytypes=CompanyType::all();
+        return view('admin/companytypelist',compact('companytypes'));
     }
 
     /**
@@ -25,6 +29,7 @@ class AdminCompanyTypeController extends Controller
     public function create()
     {
         //
+        return view('admin/addcompanytype');
     }
 
     /**
@@ -36,6 +41,17 @@ class AdminCompanyTypeController extends Controller
     public function store(Request $request)
     {
         //
+               $request->validate([
+            'name'=>'required',
+
+        ]);
+
+        //data insert
+            $companytype=new CompanyType;
+            $companytype->name=$request->name;
+            $companytype->save();
+
+            return redirect()->route('companytypes.index');
     }
 
     /**
@@ -55,9 +71,10 @@ class AdminCompanyTypeController extends Controller
      * @param  \App\CompanyType  $companyType
      * @return \Illuminate\Http\Response
      */
-    public function edit(CompanyType $companyType)
+    public function edit(CompanyType $companytype)
     {
         //
+        return view('admin/editcompanytypes',compact('companytype'));
     }
 
     /**
@@ -67,9 +84,19 @@ class AdminCompanyTypeController extends Controller
      * @param  \App\CompanyType  $companyType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CompanyType $companyType)
+    public function update(Request $request, CompanyType $companytype)
     {
         //
+              $request->validate([
+            'name'=>'required',
+
+        ]);
+
+        //data insert
+            $companytype->name=$request->name;
+            $companytype->save();
+
+            return redirect()->route('companytypes.index');
     }
 
     /**
@@ -78,8 +105,10 @@ class AdminCompanyTypeController extends Controller
      * @param  \App\CompanyType  $companyType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CompanyType $companyType)
+    public function destroy(CompanyType $companytype)
     {
         //
+         $companytype->delete();
+        return redirect()->route('companytypes.index');
     }
 }
