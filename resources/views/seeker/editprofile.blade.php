@@ -5,37 +5,35 @@ Edit Profile
 @endsection
 
 @section('content')
+
 <div class="container mt-2">
     <h1 class="mb-5">Edit Profile</h1>
-@php
-    $id=Auth::user()->id;
-@endphp
-<form action="{{ route('seeker.updateprofile',$id) }}" method="POST">
+
+<form action="{{ route('seeker.updateprofile',$seeker[0]->id) }}" method="POST">
     <form>
         @csrf
-        @method('put')
         <div class="form-group row">
           <label for="name" class="col-sm-2 col-form-label">User Name</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="name">
+            <input type="text" class="form-control" id="name" name="name" value="{{ $seeker[0]->name }}">
         </div>
         </div>
         <div class="form-group row">
           <label for="phone" class="col-sm-2 col-form-label">Phone</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="phone">
+            <input type="text" class="form-control" name="phone" id="phone" value="{{ $seeker[0]->phone }}">
         </div>
         </div>
         <div class="form-group row">
             <label for="email" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
-              <input type="email" class="form-control" id="email">
+              <input type="email" class="form-control" name="email" id="email" value="{{ $seeker[0]->email }}">
             </div>
         </div>
         <div class="form-group row">
             <label for="address" class="col-sm-2 col-form-label">Adress</label>
             <div class="col-sm-10">
-             <textarea name="address" id="address" class="form-control"></textarea>
+             <textarea name="address" id="address" class="form-control">{{ $seeker[0]->address }}</textarea>
             </div>
         </div>
         <div class="form-group row">

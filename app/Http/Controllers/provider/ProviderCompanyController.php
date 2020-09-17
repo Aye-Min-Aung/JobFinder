@@ -57,7 +57,7 @@ class ProviderCompanyController extends Controller
             'web'=>'required'
         ]);
        //if include file,upload file
-        $imageName=time().'-'.$request->logo->extension();
+        $imageName=time().'.'.$request->logo->extension();
         $request->logo->move(public_path('provider/companylogo'),$imageName);
         $path='provider/companylogo/'.$imageName;
         //data insert
@@ -108,37 +108,36 @@ class ProviderCompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Company $company)
+    public function update(Request $request,$id)
     {
-        //
+        $company=Company::find($id);
         $request->validate([
             'name'=>'required',
             'type'=>'required',
             'logo'=>'sometimes',
-            'oldlogo'=>'required',
+            'oldphoto'=>'required',
             'email'=>'required',
             'address'=>'required',
             'web'=>'required'
         ]);
        //if include file,upload file
-         if($request->hasFile('logo')){
-        $imageName=time().'-'.$request->logo->extension();
-        $request->logo->move(public_path('provider/companylogo'),$imageName);
-        $path='provider/companylogo/'.$imageName;
+        if($request->hasFile('logo')){
+            $imageName=time().'.'.$request->logo->extension();
+             $request->logo->move(public_path('provider/companylogo'),$imageName);
+            $path='provider/companylogo/'.$imageName;
         }else{
-            $path=$request->oldlogo;
+             $path=$request->oldphoto;
         }
         //data insert
             
-            $company->name=$request->name;
-            $company->company_type=$request->type;
-            $company->logo=$path;
-            $company->user_id=1;
-            $company->email=$request->email;
-            $company->address=$request->address;
-            $company->web=$request->web;
+        $company->name=$request->name;
+        $company->company_type=$request->type;
+        $company->logo=$path;
+        $company->email=$request->email;
+        $company->address=$request->address;
+        $company->web=$request->web;
 
-            $company->save();
+        $company->save();
 
             return redirect()->route('company.index');
     }

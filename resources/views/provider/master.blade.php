@@ -29,7 +29,7 @@
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     
     <div class="container">
-      <a class="navbar-brand" href="index.html">JOB FINDER</a>
+      <a class="navbar-brand font-weight-bold" href="index.html"><i class="fab fa-adobe"></i> JOB FINDER</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -55,18 +55,7 @@
               <a class="dropdown-item" href="{{ route('company.index') }}">company management</a>
             </div>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Applicant
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
-              <a class="dropdown-item" href="{{ route('provider.applicant') }}">view applicant</a>
-            </div>
-          </li>
           @endauth
-          <li class="nav-item">
-            <a class="nav-link" href="#">example</a>
-          </li>
           @php
             $user = Auth::user();
             if($user){
@@ -79,7 +68,7 @@
             <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i>{{ $username }}</a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 @auth
-                <a class="dropdown-item" href="#">edit profile</a>
+                <a class="dropdown-item" href="{{ route('provider.applicant') }}">view applicant</a>  
                 @endauth
                 @guest
                 <a class="dropdown-item" href="{{ route('customregister') }}">register</a>
@@ -109,7 +98,7 @@
 
 
   <!-- Page Content -->
-  <div style="min-height:80vh">
+  <div style="min-height:85vh">
     @yield('content')
   </div>
  

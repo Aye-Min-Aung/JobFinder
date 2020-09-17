@@ -19,7 +19,9 @@ class ProviderJobController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $user_id=Auth::user()->id;
+    {   
+        $user_id=Auth::user()->id;
+        
         $jobs=PostJob::where('user_id',$user_id)
                         ->where('status','1')
                         ->get();

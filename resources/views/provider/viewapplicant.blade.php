@@ -6,17 +6,15 @@ View Applicant
 
 @section('content')
 <div class="container">
-<h1>Applicant</h1>
+<h1 class="text-center font-weight-bold">Applicant</h1>
 <table class="table">
     <thead>
         <tr>
-            <td>no</td>
-            <td>name</td>
-            <td>company</td>
-            <td>address</td>
-            <td>seeker name</td>
-            <td>apply date</td>
-            
+            <th>no</th>
+            <th>name</th>
+            <th>company</th>
+            <th>address</th>
+            <th>action</th>
         </tr>
     </thead>
     <tbody>
@@ -29,8 +27,8 @@ View Applicant
             <td>{{ $postjob->name }}</td>
             <td>{{ $postjob->company->name }}</td>
             <td>{{ $postjob->address }}</td>
-            <td>{{ $postjob->job_seeker_id }}</td>
-            <td>{{ $postjob->apply_date }}</td>
+            <td><a href="{{ route('provider.viewapplicantlist',$postjob->id) }}">view applicants</a></td>
+            
             
         </tr>
         @endforeach

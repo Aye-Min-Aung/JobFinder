@@ -70,11 +70,18 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+
         $role=$data['role'];
         if($role=='provider'){
             $user->assignRole('Provider');
         }else{
             $user->assignRole('Seeker');
+            $seeker=new JobSeeker;
+            $seeker->user_id=$user->id;
+            $seeker->name=$user->name;
+            $seeker->email=$user->email;
+            $seeker->save();
         }
         return $user;
         

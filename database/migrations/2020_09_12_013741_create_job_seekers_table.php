@@ -16,11 +16,11 @@ class CreateJobSeekersTable extends Migration
         Schema::create('job_seekers', function (Blueprint $table) {
             $table->id();
             $table->string('name');  
-            $table->integer('phone');
+            $table->integer('phone')->nullable();
             $table->string('email')->unique();
-            $table->text('address');
-            $table->text('photo'); 
-            $table->text('cv');
+            $table->text('address')->nullable();
+            $table->text('photo')->nullable(); 
+            $table->text('cv')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->foreign('user_id')

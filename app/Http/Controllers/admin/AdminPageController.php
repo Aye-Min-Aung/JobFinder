@@ -7,15 +7,17 @@ use App\PostJob;
 use App\Company;
 use App\User;
 use App\JobSeeker;
+use Illuminate\Contracts\Queue\Job;
 use Illuminate\Http\Request;
 
 class AdminPageController extends Controller
 {
     public function dashboard(){
+        $seekers=JobSeeker::all();
         $companies=Company::all();
         $appjobs=PostJob::where('status','1')->get();
         $unappjobs=PostJob::where('status','0')->get();
-        return view('admin/dashboard',compact('companies','appjobs','unappjobs'));
+        return view('admin/dashboard',compact('companies','appjobs','unappjobs','seekers'));
     }
 
     public function company(){

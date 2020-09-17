@@ -12,11 +12,11 @@ class ApplyJob extends Model
 
     public function jobseeker($value='')
       {
-        return $this->belongsTo('App\JobSeeker');
+        return $this->belongsTo('App\JobSeeker','job_seeker_id');
       }
 
       public function postjob($value='')
       {
-        return $this->belongsTo('App\PostJob');
+        return $this->belongsTo('App\PostJob','post_job_id');
       }
 }

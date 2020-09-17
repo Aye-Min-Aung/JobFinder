@@ -18,6 +18,7 @@ My Companies
                 <th>Company Name</th>
                 <th>Company Type</th>
                 <th>Email</th>
+                <th>Web</th>
                 <th>Address</th>
                 <th colspan="3">Action</th>
               </tr>
@@ -31,8 +32,9 @@ My Companies
                 <td>{{ $i++ }}</td>
                 <td> <img src="{{asset($company->logo)}}" width="100" height="100"> </td>
                 <td>{{ $company->name }}</td>
-                <td>{{ $company->company_type }}</td>
+                <td>{{ $company->companytype->name }}</td>
                 <td>{{ $company->email }}</td>
+                <td>{{ $company->web }}</td>
                 <td>{{ $company->address }}</td>
                 <td colspan="3">
                     <a href="#" class="action text-danger"><i class="far fa-eye"></i></a>

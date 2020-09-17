@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 
 //admin route
-// Route::middleware('role:Admin')->group(function(){
+ Route::middleware('role:Admin')->group(function(){
     Route::prefix('admin')->group(function () {
 
 Route::get('/dashboard','admin\AdminPageController@dashboard')->name('dashboard');
@@ -52,11 +52,11 @@ Route::resource('natures', 'admin\AdminNatureController');
 
 Route::get('/userinfo/{id}','admin\AdminPageController@userinfo')->name('admin.userinfo');
 });
-// });
+ });
 
 
 //job_provider route
-// Route::middleware('role:Provider')->group(function(){
+ Route::middleware('role:Provider')->group(function(){
 Route::prefix('provider')->group(function () {
 
     Route::resource('postjobs', 'provider\ProviderJobController');
@@ -72,31 +72,37 @@ Route::prefix('provider')->group(function () {
     Route::get('/viewapplicant','provider\ProviderController@viewapplicant')->name('provider.applicant');
 
     Route::get('/delete/{id}','provider\ProviderCompanyController@delete')->name('company.delete');
+
+    Route::get('/viewapplicantlist/{id}','provider\ProviderController@viewapplicantlist')->name('provider.viewapplicantlist');
     
 });
-// });
+ });
 
 //job_seeker route
-// Route::middleware('role:Seeker')->group(function(){
+ 
 Route::prefix('seeker')->group(function () {
-
+    Route::middleware('role:Seeker')->group(function(){
     Route::resource('applyjobs', 'seeker\SeekerJobController');
 
-    Route::get('/login','seeker\SeekerPageController@login')->name('seekerlogin');
-       
-    Route::get('/register','seeker\SeekerPageController@register')->name('seekerregister');
     
-    Route::get('/home','seeker\SeekerPageController@home')->name('seeker.home');
 
     Route::get('/applyjobs/add/{id}','seeker\SeekerPageController@insert')->name('seeker.insert');
 
     Route::get('/viewapplyjob','seeker\SeekerPageController@viewapplyjob')->name('seeker.viewapplyjobs');
 
-    Route::get('/editprofile','seeker\SeekerPageController@editprofile')->name('seeker.editprofile');
+    Route::get('/editprofile/{id}','seeker\SeekerPageController@editprofile')->name('seeker.editprofile');
 
     Route::post('/editprofile/{id}','seeker\SeekerPageController@updateprofile')->name('seeker.updateprofile');
+
+    
 });
-// });
+
+Route::get('/login','seeker\SeekerPageController@login')->name('seekerlogin');
+       
+    Route::get('/register','seeker\SeekerPageController@register')->name('seekerregister');
+    
+    Route::get('/home','seeker\SeekerPageController@home')->name('seeker.home');
+ });
 
 
 
