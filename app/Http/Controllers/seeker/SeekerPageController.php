@@ -24,6 +24,12 @@ class SeekerPageController extends Controller
     	return view('seeker.register');
     }
 
+    public function contact($value='')
+    {
+        return view('seeker.contact');
+    }
+
+
     public function home(){
         $categories=JobCategory::all();
         return view('seeker.home',compact('categories'));

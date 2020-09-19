@@ -47,7 +47,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="{{ route('seekercontact') }}">Contact</a>
           </li>
 
           @php
