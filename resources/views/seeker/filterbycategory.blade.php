@@ -75,7 +75,9 @@ Find Job
           <select class="form-control fcat">
             <option value="0">all categories</option>
             @foreach($categories as $category)
-            <a href=""><option value="{{ $category->id }}">{{ $category->name }}</option></a>
+            <option value="{{ $category->id }}"  @if($category->id==$catid)
+                selected
+                @endif>{{ $category->name }}</option>
             @endforeach
           </select>
         </div>
@@ -192,4 +194,5 @@ Find Job
 @endsection
 @section('script')
 <script src="{{ asset('seeker/js/seeker.js') }}"></script>
+
 @endsection

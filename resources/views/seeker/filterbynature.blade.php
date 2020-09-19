@@ -75,7 +75,9 @@ Find Job
           <select class="form-control fcat">
             <option value="0">all categories</option>
             @foreach($categories as $category)
-            <a href=""><option value="{{ $category->id }}">{{ $category->name }}</option></a>
+            <a href="">
+              <option value="{{ $category->id }}">{{ $category->name }}</option>
+            </a>
             @endforeach
           </select>
         </div>
@@ -83,9 +85,11 @@ Find Job
         <div class="p-3 my-3">
           <h4 class="mb-3 primary"> Job Natures </h4>
           <select class="form-control fnat">
-            <option value="">all natures</option>
+            <option value="0">all natures</option>
             @foreach($natures as $nature)
-            <option value="{{ $nature->id }}">{{ $nature->name }}</option>
+            <option value="{{ $nature->id }}" @if($nature->id==$natid)
+              selected
+              @endif>{{ $nature->name }}</option>
             @endforeach
           </select>
         </div>
@@ -155,7 +159,6 @@ Find Job
             <option value="4">above 1500000 Kyats</option>
           </select>
         </div>
-        
       </div>
       {{-- Job Area --}}
       <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12 border text-left scrollarea">

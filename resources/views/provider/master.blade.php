@@ -74,8 +74,8 @@
                 <a class="dropdown-item" href="{{ route('customregister') }}">register</a>
                 <a class="dropdown-item" href="{{ route('customlogin') }}">login</a>
                 @endguest
-                <div class="dropdown-divider"></div>
                 @auth
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

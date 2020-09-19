@@ -85,5 +85,9 @@ class AdminPageController extends Controller
         $seeker->delete();
         return back();
     }
+
+    public function login(){
+        return view('admin.login');
+    }
     
 }

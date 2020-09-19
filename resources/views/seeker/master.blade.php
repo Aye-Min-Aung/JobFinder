@@ -93,11 +93,14 @@
 
 
   <!-- Page Content -->
-  @yield('content')
+  <div style="min-height: 85vh">
+    @yield('content')
+  </div>
+  
   <!-- /.container -->
 
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
+  <footer class="py-2 bg-dark">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Job Finder @php echo date('Y') @endphp</p>
     </div>
@@ -108,6 +111,8 @@
   <script src="{{ asset('provider/vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('provider/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
+
+  @yield('script')
 </body>
 
 </html>

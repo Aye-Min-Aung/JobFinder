@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\JobCategory;
 use App\JobSeeker;
 use App\PostJob;
+use App\JobNature;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -60,5 +61,110 @@ class SeekerPageController extends Controller
         $seeker->cv=$request->cv;
         $seeker->save();
         return redirect()->route('seeker.home');
+    }
+
+    public function filterbycat($id)
+    {   
+        $catid=$id;
+        if($catid==0){
+            return redirect()->route('applyjobs.index');
+        }else{
+
+        $categories=JobCategory::all();
+        $natures=JobNature::all();
+        $postjobs=PostJob::where('category_id',$catid)
+                            ->where('status','1')
+                            ->get();
+        return view('seeker.filterbycategory',compact('postjobs','natures','categories','catid'));
+        }
+    }
+
+    public function filterbynature($id)
+    {   
+        $natid=$id;
+        if($natid==0){
+            return redirect()->route('applyjobs.index');
+        }else{
+
+        $categories=JobCategory::all();
+        $natures=JobNature::all();
+        $postjobs=PostJob::where('nature_id',$natid)
+                            ->where('status','1')
+                            ->get();
+        return view('seeker.filterbynature',compact('postjobs','natures','categories','natid'));
+        }
+    }
+
+    public function filterbyexp($id)
+    {   
+        $expid=$id;
+        if($expid==0){
+            return redirect()->route('applyjobs.index');
+        }elseif($expid==1){
+            $postjobs=PostJob::where('experience','<','3')
+                            ->where('status','1')
+                            ->get();
+        }elseif($expid==2){
+            $postjobs=PostJob::where('experience','>=','3')
+                            ->where('experience','<','6')
+                            ->where('status','1')
+                            ->get();
+        }elseif($expid==3){
+            $postjobs=PostJob::where('experience','>=','6')
+                            ->where('experience','<','9')
+                            ->where('status','1')
+                            ->get();
+        }else{
+            $postjobs=PostJob::where('experience','>=','9')
+                            ->where('status','1')
+                            ->get();
+        }
+
+        $categories=JobCategory::all();
+        $natures=JobNature::all();
+        
+        return view('seeker.filterbyexperience',compact('postjobs','natures','categories','expid'));
+        
+    }
+
+    public function filterbysal($id)
+    {   
+        $salid=$id;
+        if($salid==0){
+            return redirect()->route('applyjobs.index');
+        }elseif($salid==1){
+            $postjobs=PostJob::where('salary','<','500000')
+                            ->where('status','1')
+                            ->get();
+        }elseif($salid==2){
+            $postjobs=PostJob::where('salary','>=','500000')
+                            ->where('salary','<','1000000')
+                            ->where('status','1')
+                            ->get();
+        }elseif($salid==3){
+            $postjobs=PostJob::where('salary','>=','1000000')
+                            ->where('salary','<','1500000')
+                            ->where('status','1')
+                            ->get();
+        }else{
+            $postjobs=PostJob::where('salary','>=','1500000')
+                            ->where('status','1')
+                            ->get();
+        }
+        $categories=JobCategory::all();
+        $natures=JobNature::all();
+        return view('seeker.filterbysalary',compact('postjobs','natures','categories','salid'));
+        
+    }
+
+
+    public function filterbyname($id)
+    {   
+        $name=$id;
+        $postjobs=PostJob::where('name','like','%'.$name.'%')->get();
+        $categories=JobCategory::all();
+        $natures=JobNature::all();
+        return view('seeker.filterbyname',compact('postjobs','natures','categories','name'));
+        
     }
 }
