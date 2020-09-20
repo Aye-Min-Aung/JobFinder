@@ -93,6 +93,8 @@ Route::prefix('seeker')->group(function () {
 
         Route::get('/viewapplyjob', 'seeker\SeekerPageController@viewapplyjob')->name('seeker.viewapplyjobs');
 
+        Route::get('/deleteapplyjob/{id}', 'seeker\SeekerPageController@deleteapplyjob')->name('seeker.deleteapplyjobs');
+
         Route::get('/editprofile/{id}', 'seeker\SeekerPageController@editprofile')->name('seeker.editprofile');
 
         Route::post('/editprofile/{id}', 'seeker\SeekerPageController@updateprofile')->name('seeker.updateprofile');

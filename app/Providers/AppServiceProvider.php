@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\PostJob;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Auth;
+use App\ApplyJob;
+use App\JobSeeker;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        //
+    {   
+        
     }
 }
