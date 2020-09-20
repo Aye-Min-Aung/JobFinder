@@ -34,6 +34,7 @@ class SeekerPageController extends Controller
         $categories=JobCategory::all();
         return view('seeker.home',compact('categories'));
     }
+    
     public function insert($id){
         $job=PostJob::find($id);
         $user_id=Auth::user()->id;
@@ -58,13 +59,34 @@ class SeekerPageController extends Controller
     }
 
     public function updateprofile(Request $request,$id){
+        if ($request->hasFile('photo')) {
+        $imageName = time().'.'.$request->photo->extension();
+        $request->photo->move(public_path('seeker/photoimg'),$imageName);
+        $photopath = 'seeker/photoimg/'.$imageName;
+        }else{
+            $photopath=$request->oldphoto;
+        }
+
+        if ($request->hasFile('cv'))
+        {
+            $extension=$request->cv->extension();
+            if($extension=='pdf'){
+                $cvName = time().'.'.$request->cv->extension();
+                $request->cv->move(public_path('seeker/cvimg'),$cvName);
+                $cvpath = 'seeker/cvimg/'.$cvName;
+            }else{
+                return back()->with('alert', 'no choose image!');
+            }
+        }else{
+            $cvpath=$request->oldcv;
+        }
         $seeker=JobSeeker::find($id);
         $seeker->name=$request->name;
         $seeker->email=$request->email;
         $seeker->phone=$request->phone;
         $seeker->address=$request->address;
-        $seeker->photo=$request->photo;
-        $seeker->cv=$request->cv;
+        $seeker->photo=$photopath;
+        $seeker->cv=$cvpath;
         $seeker->save();
         return redirect()->route('seeker.home');
     }
