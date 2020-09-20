@@ -37,15 +37,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('seeker.home') }}">Home</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Jobs
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
-              <a class="dropdown-item" href="{{ route('applyjobs.index') }}">Find Job</a>
-            </div>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('applyjobs.index') }}">Find Job</a>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" href="{{ route('seekercontact') }}">Contact</a>
           </li>

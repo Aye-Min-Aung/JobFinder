@@ -60,13 +60,13 @@ home
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-5 col-lg-5 col-md-8 col-sm-12 col-12">
-                <h1 class="text-capitalize primary font-weight-bold" id="heading1">Find The Most Exciting Startup Job
+                <h1 class="text-capitalize primary font-weight-bold display-4" id="heading1">Find The Most Exciting Startup Job
                 </h1>
             </div>
         </div>
 
-        <div class="row mt-5 ml-5" id="search-area">
-            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+        <div class="row mt-5 text-center " id="search-area">
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 ">
                 <input type="text" name="name" class="form-control name" id="search-box" placeholder="Enter Job Name">
             </div>
 
@@ -74,7 +74,7 @@ home
                 <a href="{{ route('applyjobs.index') }}" class="btn btn-danger px-5">Find</a>
             </div>
         </div>
-    </div>
+    </div>  
 </div>
 <!--end of background image-->
 

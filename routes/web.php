@@ -26,8 +26,6 @@ Route::prefix('admin')->group(function () {
     Route::middleware('role:Admin')->group(function () {
         Route::get('/dashboard', 'admin\AdminPageController@dashboard')->name('dashboard');
 
-
-
         Route::get('/companies', 'admin\AdminPageController@company')->name('company');
 
         Route::get('/deletecompany/{id}', 'admin\AdminPageController@deletecompany')->name('admin.deletecompany');
