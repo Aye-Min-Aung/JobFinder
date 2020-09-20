@@ -84,7 +84,7 @@ class SeekerPageController extends Controller
                 $request->cv->move(public_path('seeker/cvimg'),$cvName);
                 $cvpath = 'seeker/cvimg/'.$cvName;
             }else{
-                return back()->with('alert', 'no choose image!');
+                return back()->with('alert', 'Choose only pdf!');
             }
         }else{
             $cvpath=$request->oldcv;
