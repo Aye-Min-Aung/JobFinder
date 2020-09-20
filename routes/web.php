@@ -88,7 +88,7 @@ Route::prefix('seeker')->group(function () {
         Route::resource('applyjobs', 'seeker\SeekerJobController');
 
 
-
+Route::middleware('role:Seeker')->group(function () {
         Route::get('/applyjobs/add/{id}', 'seeker\SeekerPageController@insert')->name('seeker.insert');
 
         Route::get('/viewapplyjob', 'seeker\SeekerPageController@viewapplyjob')->name('seeker.viewapplyjobs');
@@ -98,7 +98,7 @@ Route::prefix('seeker')->group(function () {
         Route::get('/editprofile/{id}', 'seeker\SeekerPageController@editprofile')->name('seeker.editprofile');
 
         Route::post('/editprofile/{id}', 'seeker\SeekerPageController@updateprofile')->name('seeker.updateprofile');
-
+});
         Route::get('/filter/category/{id}', 'seeker\SeekerPageController@filterbycat')->name('seeker.fcat');
 
         Route::get('/filter/nature/{id}', 'seeker\SeekerPageController@filterbynature')->name('seeker.fnat');

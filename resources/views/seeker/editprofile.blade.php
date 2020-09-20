@@ -40,7 +40,7 @@ Edit Profile
         <label for="photo" class="col-sm-2 col-form-label">Photo</label>
         <div class="col-sm-10">
           <input type="file" name="photo" class="form-control-form" id="photo">
-          <input type="hidden" name="oldphoto" value="{{ $seeker[0]->photo }}">
+          <input type="hidden" name="oldphoto" value="{{ $seeker[0]->photo }}"><br>
           <img src="{{ asset($seeker[0]->photo) }}" width="100px" height="100px" class="img-fluid" alt="you have no photo">
         </div>
       </div>
@@ -49,12 +49,13 @@ Edit Profile
         <div class="col-sm-10">
           <input type="file" name="cv" class="form-control-form" id="cv">
           @if (session('alert'))
-    <div class="alert alert-success text-danger">
-        {{ session('alert') }}
-    </div>
-@endif
+              <div class="alert alert-success text-danger">
+                  {{ session('alert') }}
+              </div>
+          @endif
           <input type="hidden" name="oldcv" value="{{ $seeker[0]->cv }}">
           {{-- <embed src="{{ asset($seeker[0]->cv) }}" width="100px" height="100px" /> --}}
+            <br>
           <img src="{{ asset('seeker/cvimg/pdf.png') }}" width="100px" height="100px" class="img-fluid">
           @if($seeker[0]->cv)
           <input type="text" name="" value="{{ $seeker[0]->cv }}" style="border:none; width:400px;">

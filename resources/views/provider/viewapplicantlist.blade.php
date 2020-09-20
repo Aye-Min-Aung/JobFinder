@@ -25,12 +25,12 @@
                     @foreach($appjobs as $appjob)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td><img src="{{ $appjob->jobseeker->photo }}" alt="" width="50" height="50"></td>
+                        <td><img src="{{ asset($appjob->jobseeker->photo) }}" alt="" width="50" height="50"></td>
                         <td><a href="">{{ $appjob->jobseeker->name }}</a></td>
                         <td>{{ $appjob->jobseeker->phone }}</td>
                         <td>{{ $appjob->jobseeker->email }}</td>
                         <td>{{ $appjob->jobseeker->address }}</td>
-                        <td>{{ $appjob->jobseeker->cv }}</td>
+                        <td><a href="{{ asset($appjob->jobseeker->cv) }}" class="site-btn" target="_blank" download>Download CV</a>{{-- {{ $appjob->jobseeker->cv }} --}}</td>
                     </tr>
                     @endforeach
                 </tbody>
