@@ -30,7 +30,7 @@
                         <td>{{ $appjob->jobseeker->phone }}</td>
                         <td>{{ $appjob->jobseeker->email }}</td>
                         <td>{{ $appjob->jobseeker->address }}</td>
-                        <td>{{ $appjob->jobseeker->cv }}</td>
+                        <td><a href="{{ asset($appjob->jobseeker->cv) }}" class="site-btn" target="_blank" download>Download CV</a>{{-- {{ $appjob->jobseeker->cv }} --}}</td>
                     </tr>
                     @endforeach
                 </tbody>
