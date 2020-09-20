@@ -106,6 +106,8 @@ Route::prefix('seeker')->group(function () {
         Route::get('/filter/salary/{id}', 'seeker\SeekerPageController@filterbysal')->name('seeker.fsal');
 
         Route::get('/filter/name/{id}', 'seeker\SeekerPageController@filterbyname')->name('seeker.name');
+
+
     });
 
     Route::get('/login', 'seeker\SeekerPageController@login')->name('seekerlogin');
@@ -113,6 +115,8 @@ Route::prefix('seeker')->group(function () {
     Route::get('/register', 'seeker\SeekerPageController@register')->name('seekerregister');
 
     Route::get('/home', 'seeker\SeekerPageController@home')->name('seeker.home');
+
+    Route::get('/contact','seeker\SeekerPageController@contact')->name('seekercontact');
 });
 
 
