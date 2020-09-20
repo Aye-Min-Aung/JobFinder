@@ -33,4 +33,13 @@ $(document).ready(function () {
         }
         
       });
+
+      $('.find').click(function () { 
+        var id=$('.jname').val();
+        if(id){
+          var path='/seeker/filter/name/'+id;
+          window.location.href=path;
+        }
+        
+      });
 })
