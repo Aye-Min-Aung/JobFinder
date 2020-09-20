@@ -15,7 +15,7 @@
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Address</th>
-                        <th>cv</th>
+                        <th>CV</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,7 +30,10 @@
                         <td>{{ $appjob->jobseeker->phone }}</td>
                         <td>{{ $appjob->jobseeker->email }}</td>
                         <td>{{ $appjob->jobseeker->address }}</td>
-                        <td><a href="{{ asset($appjob->jobseeker->cv) }}" class="site-btn" target="_blank" download>Download CV</a>{{-- {{ $appjob->jobseeker->cv }} --}}</td>
+                        <td>@if($appjob->jobseeker->cv)
+                            <a href="{{ asset($appjob->jobseeker->cv) }}" class="site-btn" target="_blank" download>Download CV</a>{{-- {{ $appjob->jobseeker->cv }} --}}
+                            @else
+                            @endif</td>
                     </tr>
                     @endforeach
                 </tbody>
