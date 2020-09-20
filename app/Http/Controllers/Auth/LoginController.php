@@ -55,4 +55,10 @@ class LoginController extends Controller
             
         }
     }
+
+    protected function loggedOut(Request $request)
+    {
+        // Auth::logout();
+        return redirect('/login');
+    }
 }

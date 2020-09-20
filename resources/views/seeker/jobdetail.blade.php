@@ -112,9 +112,17 @@
 
                 <tr>
                     <td colspan="2">
-                        <a href="{{ route('seeker.insert',$job->id) }}" class="btn btn-danger">Apply</a>
+                        @role('Seeker')
+                        <a href="{{ route('seeker.insert',$job->id) }}" class="btn btn-danger">Apply</a>        
+                      @else
+                        <a href="{{route('seekerlogin')}}" class="btn btn-danger mainfullbtncolor"> 
+                          Login To Apply 
+                        </a>
+                      @endrole
                     </td>
                 </tr>
+
+
                 
             </table>
                 </div>

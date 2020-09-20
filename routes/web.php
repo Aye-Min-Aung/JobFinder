@@ -84,7 +84,7 @@ Route::prefix('provider')->group(function () {
 //job_seeker route
 
 Route::prefix('seeker')->group(function () {
-    Route::middleware('role:Seeker')->group(function () {
+    // Route::middleware('role:Seeker')->group(function () {
         Route::resource('applyjobs', 'seeker\SeekerJobController');
 
 
@@ -110,7 +110,7 @@ Route::prefix('seeker')->group(function () {
         Route::get('/filter/name/{id}', 'seeker\SeekerPageController@filterbyname')->name('seeker.name');
 
 
-    });
+    // });
 
     Route::get('/login', 'seeker\SeekerPageController@login')->name('seekerlogin');
 

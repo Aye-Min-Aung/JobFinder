@@ -61,16 +61,17 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i>{{ $username }}</a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                @auth
+                @role('Seeker')
                 <a class="dropdown-item" href="{{ route('seeker.editprofile',$id=Auth::user()->id) }}">edit profile</a>
                 <a class="dropdown-item" href="{{ route('seeker.viewapplyjobs') }}">view applied Job</a>
-                @endauth
+                @endrole
                 @guest
                 <a class="dropdown-item" href="{{ route('customregister') }}">register</a>
                 <a class="dropdown-item" href="{{ route('customlogin') }}">login</a>
                 @endguest
+                
+                @role('Seeker')
                 <div class="dropdown-divider"></div>
-                @auth
                 <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -80,7 +81,7 @@
                                           @csrf
                                       </form>
                 </a>
-                @endauth
+                @endrole
 
             </div>
         </li>
