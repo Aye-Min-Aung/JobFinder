@@ -3,7 +3,7 @@
 @endsection
 @section('content')
     <div class="container">
-        <h4 class="text-center mt-2 text-danger">{{ $appjobs[0]->postjob->name }}</h4>
+        <h4 class="text-center mt-2 text-danger">{{ $pjobs->name }}</h4>
         <h4>Applicant List</h4>
         <div class="table-responsive">
             <table class="table">

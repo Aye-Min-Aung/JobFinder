@@ -37,7 +37,7 @@ My Companies
                 <td>{{ $company->web }}</td>
                 <td>{{ $company->address }}</td>
                 <td colspan="3">
-                    <a href="#" class="action text-danger"><i class="far fa-eye"></i></a>
+                    
 
                     <a href="{{ route('company.edit',$company->id) }}" class="action text-danger"><i class="far fa-edit"></i></a>
 
