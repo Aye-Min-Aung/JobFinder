@@ -76,6 +76,8 @@ class RegisterController extends Controller
         $role=$data['role'];
         if($role=='provider'){
             $user->assignRole('Provider');
+        }elseif($role=='admin'){
+            $user->assignRole('Admin');
         }else{
             $user->assignRole('Seeker');
             $seeker=new JobSeeker;
