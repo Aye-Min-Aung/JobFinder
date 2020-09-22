@@ -113,9 +113,23 @@
                 <tr>
                     <td colspan="2">
                         @role('Seeker')
-                        <a href="{{ route('seeker.insert',$job->id) }}" class="btn btn-danger">Apply</a>        
-                      @else
-                        <a href="{{route('seekerlogin')}}" class="btn btn-danger mainfullbtncolor"> 
+                            @if(count($applyjobs)!=0)
+                                @foreach($applyjobs as $applyjob)
+                                @if($applyjob->post_job_id==$job->id )
+                                    <a href="{{ route('seeker.insert',$job->id) }}" class="btn btn-danger disabled">Applied</a>
+                                @else
+                                    <a href="{{ route('seeker.insert',$job->id) }}" class="btn btn-danger">Apply</a>
+                                @endif
+                                @endforeach
+                            @else
+                                <a href="{{ route('seeker.insert',$job->id) }}" class="btn btn-danger">Apply</a>
+                            @endif
+                            
+                            
+                            
+                                   
+                        @else
+                            <a href="{{route('seekerlogin')}}" class="btn btn-danger mainfullbtncolor"> 
                           Login To Apply 
                         </a>
                       @endrole

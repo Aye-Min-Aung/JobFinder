@@ -51,7 +51,7 @@ class SeekerPageController extends Controller
     public function viewapplyjob(){
         $user_id=Auth::user()->id;
         $seeker=JobSeeker::where('user_id',$user_id)->get();
-        $applyjobs=ApplyJob::where('job_seeker_id',$seeker[0]->id)->get(    );
+        $applyjobs=ApplyJob::where('job_seeker_id',$seeker[0]->id)->get();
         return view('seeker.viewapplyjob',compact('applyjobs'));
     }
 
