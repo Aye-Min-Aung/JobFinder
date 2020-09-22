@@ -11,7 +11,7 @@
         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
             <div class="row mb-4">
                 <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-12 border">
-                    <img src="image/c2.jpg" alt="company logo" width="100px" height="100px">
+                    <img src="{{asset($job->company->logo)}}" alt="company logo" width="100px" height="100px">
                 </div>
                 <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12">
                     <p class="font-weight-bold">{{ $job->name }}({{ $job->jobcategory->name }})</p>

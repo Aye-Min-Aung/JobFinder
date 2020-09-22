@@ -31,7 +31,7 @@ class SeekerPageController extends Controller
 
 
     public function home(){
-        $categories=JobCategory::all();
+        $categories=JobCategory::take(8)->get();
         return view('seeker.home',compact('categories'));
     }
     
