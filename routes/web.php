@@ -3,25 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-    /*return 'hello';*/
-});
 
 
 //admin route
-
+Route::get('/','seeker\SeekerPageController@home');
 Route::prefix('admin')->group(function () {
     Route::middleware('role:Admin')->group(function () {
         Route::get('/dashboard', 'admin\AdminPageController@dashboard')->name('dashboard');
@@ -75,7 +60,6 @@ Route::prefix('provider')->group(function () {
         Route::get('/viewapplicantlist/{id}', 'provider\ProviderController@viewapplicantlist')->name('provider.viewapplicantlist');
     });
     Route::get('/register', 'provider\ProviderController@register')->name('customregister');
-
     Route::get('/login', 'provider\ProviderController@login')->name('customlogin');
 });
 
@@ -84,8 +68,7 @@ Route::prefix('provider')->group(function () {
 Route::prefix('seeker')->group(function () {
     // Route::middleware('role:Seeker')->group(function () {
         Route::resource('applyjobs', 'seeker\SeekerJobController');
-
-
+        
 Route::middleware('role:Seeker')->group(function () {
         Route::get('/applyjobs/add/{id}', 'seeker\SeekerPageController@insert')->name('seeker.insert');
 

@@ -60,8 +60,8 @@
                 <a class="dropdown-item" href="{{ route('seeker.viewapplyjobs') }}">view applied Job</a>
                 @endrole
                 @guest
-                <a class="dropdown-item" href="{{ route('customregister') }}">register</a>
-                <a class="dropdown-item" href="{{ route('customlogin') }}">login</a>
+                <a class="dropdown-item" href="{{ route('seekerregister') }}">register</a>
+                <a class="dropdown-item" href="{{ route('seekerlogin') }}">login</a>
                 @endguest
                 
                 @role('Seeker')
